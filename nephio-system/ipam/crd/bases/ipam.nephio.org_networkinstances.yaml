@@ -4,7 +4,6 @@ metadata: # kpt-merge: /networkinstances.ipam.nephio.org
   annotations:
     controller-gen.kubebuilder.io/version: v0.9.2
     internal.kpt.dev/upstream-identifier: 'apiextensions.k8s.io|CustomResourceDefinition|default|networkinstances.ipam.nephio.org'
-  creationTimestamp: null
   name: networkinstances.ipam.nephio.org
 spec:
   group: ipam.nephio.org

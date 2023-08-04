@@ -9,15 +9,15 @@ upstream:
   git:
     repo: https://github.com/nephio-project/nephio-packages
     directory: /nephio-system
-    ref: v1.0.0
+    ref: v1.0.1
   updateStrategy: resource-merge
 upstreamLock:
   type: git
   git:
     repo: https://github.com/nephio-project/nephio-packages
     directory: /nephio-system
-    ref: v1.0.0
-    commit: 2909516e4b68edffa432edec894f4a74799ec0f2
+    ref: v1.0.1
+    commit: c81cfcdd567a60a1583df554ac711afcc5a26aad
 info:
   site: https://nephio.org
   description: Package for the basic Nephio software.

@@ -4,7 +4,6 @@ metadata: # kpt-merge: /packagedeployments.automation.nephio.org
   annotations:
     controller-gen.kubebuilder.io/version: v0.9.2
     internal.kpt.dev/upstream-identifier: 'apiextensions.k8s.io|CustomResourceDefinition|default|packagedeployments.automation.nephio.org'
-  creationTimestamp: null
   name: packagedeployments.automation.nephio.org
 spec:
   group: automation.nephio.org
