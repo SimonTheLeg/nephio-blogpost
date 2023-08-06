@@ -1,0 +1,15 @@
+apiVersion: config.porch.kpt.dev/v1alpha1
+kind: Repository
+metadata:
+  labels:
+    kpt.dev/repository-access: read-only
+  name: nephio-example-packages
+spec:
+  content: Package
+  deployment: false
+  description: nephio-example-packages fork with envoy
+  git:
+    branch: add-envoy
+    directory: /
+    repo: https://github.com/SimonTheLeg/nephio-example-packages
+  type: git
