@@ -1,4 +1,4 @@
-# Copyright 2022 Google LLC
+# Copyright 2022 The kpt Authors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -42,15 +42,11 @@ spec:
       containers:
       - name: porch-controllers
         # Update to the image of your porch-controllers build.
-        image: gcr.io/kpt-dev/porch-controllers:v0.0.12
+        image: gcr.io/kpt-dev/porch-controllers:v0.0.20
+        # Note: only the existence of the variable matters for enabling the reconciler
+        # So, be sure to remove the var not just change the value to false
         env:
-        - name: ENABLE_WORKLOADIDENTITYBINDINGS
+        - name: ENABLE_PACKAGEVARIANTSETS
           value: "true"
-        - name: ENABLE_REMOTEROOTSYNCSETS
+        - name: ENABLE_PACKAGEVARIANTS
           value: "true"
-        - name: ENABLE_ROOTSYNCSETS
-          value: "true"
-        - name: GCP_PROJECT_ID
-          value: example-google-project-id
-        - name: HACK_ENABLE_LOOPBACK
-          value: "1"

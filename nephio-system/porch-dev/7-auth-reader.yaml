@@ -1,4 +1,4 @@
-# Copyright 2022 Google LLC
+# Copyright 2022 The kpt Authors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,16 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata: # kpt-merge: /porch-system:porch-controllers-rootsyncsets
-  name: porch-system:porch-controllers-rootsyncsets
+kind: RoleBinding
+metadata: # kpt-merge: kube-system/porch-auth-reader
+  name: porch-auth-reader
+  namespace: kube-system
   annotations:
-    internal.kpt.dev/upstream-identifier: 'rbac.authorization.k8s.io|ClusterRoleBinding|default|porch-system:porch-controllers-rootsyncsets'
+    internal.kpt.dev/upstream-identifier: 'rbac.authorization.k8s.io|RoleBinding|kube-system|porch-auth-reader'
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: porch-controllers-rootsyncsets
+  kind: Role
+  name: extension-apiserver-authentication-reader
 subjects:
 - kind: ServiceAccount
-  name: porch-controllers
+  name: porch-server
   namespace: porch-system

@@ -1,4 +1,4 @@
-# Copyright 2022 Google LLC
+# Copyright 2022 The kpt Authors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,18 +11,17 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-apiVersion: apiregistration.k8s.io/v1
-kind: APIService
-metadata: # kpt-merge: /v1alpha1.porch.kpt.dev
-  name: v1alpha1.porch.kpt.dev
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata: # kpt-merge: /porch:system:auth-delegator
+  name: porch:system:auth-delegator
   annotations:
-    internal.kpt.dev/upstream-identifier: 'apiregistration.k8s.io|APIService|default|v1alpha1.porch.kpt.dev'
-spec:
-  insecureSkipTLSVerify: true
-  group: porch.kpt.dev
-  groupPriorityMinimum: 1000
-  versionPriority: 15
-  service:
-    name: api
-    namespace: porch-system
-  version: v1alpha1
+    internal.kpt.dev/upstream-identifier: 'rbac.authorization.k8s.io|ClusterRoleBinding|default|porch:system:auth-delegator'
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:auth-delegator
+subjects:
+- kind: ServiceAccount
+  name: porch-server
+  namespace: porch-system
